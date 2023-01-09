@@ -1,6 +1,8 @@
 ### CIS174 Spring 2023
 Advance C# ASP.NET MVC
+----------------------
 
+202302 CIS174 23767 - Advanced C# Programming
 Prof. Matthew Julius, MBA
 
 Email: 	mjjulius @ dmacc .edu 	Please only use your DMACC Email Address to contact me.
