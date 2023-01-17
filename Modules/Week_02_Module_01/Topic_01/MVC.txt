@@ -1,0 +1,3 @@
+Use this link to run through a tutorial on MVC
+
+https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-7.0&tabs=visual-studio

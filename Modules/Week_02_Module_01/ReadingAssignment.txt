@@ -1,0 +1,4 @@
+Murach's ASP.NET Core MVC 2nd Edition
+
+Read / Study Chapter 2 of the textbook
+(How to Develop a one-page MVC web app)
