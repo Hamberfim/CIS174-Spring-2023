@@ -11,10 +11,166 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet" integrity="" crossorigin="anonymous" />
+    <style>
+      body {
+        margin-top: 5px;
+      }
+      .row {
+        margin-bottom: 0.5rem;
+      }
+
+      .emphasis {
+        border: 1px solid black;
+        padding: 0.25rem;
+        background-color: #bec2c5;
+      }
+    </style>
     <title>Document</title>
   </head>
   <body>
-    <main></main>
+    <main class="container">
+      <h5>Rows and Columns</h5>
+      <!-- example columns set for md screens - collapse to stack at smaller screens-->
+      <div class="row">
+        <div class="col-md-12 emphasis">Row 1, col width=12</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 emphasis">row 2, col width=4</div>
+        <div class="col-md-8 emphasis">row 2, col width=8</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 emphasis">row 3, col width=6</div>
+        <div class="col-md-6 emphasis">row 3, col width=6</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 emphasis">row 4, col width=4</div>
+        <div class="col-md-4 emphasis">row 4, col width=4</div>
+        <div class="col-md-4 emphasis">row 4, col width=4</div>
+      </div>
+      <!-- form example - collapse to stack at smaller screens-->
+      <h5>Horizontal Form</h5>
+      <form action="#">
+        <div class="row">
+          <label for="first" class="form-label col-form-label col-md-1">First:</label>
+          <!-- horizontal need to nest the input in a div -->
+          <div class="col-md-5">
+            <input id="first" type="text" class="form-control" />
+          </div>
+          <label for="city" class="col-form-label col-md-1">City:</label>
+          <!-- horizontal need to nest the input in a div -->
+          <div class="col-md-5">
+            <input id="city" type="text" class="form-control" />
+          </div>
+        </div>
+        <h5>Floating Label Form</h5>
+        <!-- input has to come before label -->
+        <div class="form-floating">
+          <input id="lname" type="text" class="form-control" />
+          <label for="lname">Last Name</label>
+        </div>
+      </form>
+      <!-- Tables-->
+      <h5 class="mt-2">HTML Tables</h5>
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th class="w-50">Class</th>
+            <th>Start Time</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CIS174 - Advanced C#</td>
+            <td>12:30pm</td>
+            <td>bldg 8</td>
+          </tr>
+          <tr>
+            <td>WDV321 - Advanced JavaScript</td>
+            <td>6pm</td>
+            <td>Online</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- buttons -->
+      <h5>Buttons</h5>
+      <p>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-info">Info</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-danger">Danger</button>
+      </p>
+      <p>
+        <button class="btn btn-outline-primary">
+          <span class="fas fa-home"></span>
+          Home
+        </button>
+        <button class="btn btn-outline-secondary">Secondary</button>
+        <button class="btn btn-outline-success">
+          <span class="fas fa-shopping-cart"></span>
+          Cart
+        </button>
+        <button class="btn btn-outline-info">Info</button>
+        <button class="btn btn-outline-warning">Warning</button>
+        <button class="btn btn-outline-danger">Danger</button>
+      </p>
+      <!-- buttons groups -->
+      <h5>Button Groups</h5>
+      <div class="btn-toolbar mb-2" role="toolbar" aria-label="Toolbar with groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button class="btn btn-outline-primary">Primary</button>
+          <button class="btn btn-outline-secondary">Secondary</button>
+          <button class="btn btn-outline-success">Success</button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <a href="#" class="btn btn-primary">Primary</a>
+          <a href="#" class="btn btn-secondary">Secondary</a>
+          <a href="#" class="btn btn-success">Success</a>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-4">
+          <h5>Vertical Button Groups</h5>
+          <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with groups">
+            <div class="btn-group-vertical me-2" role="group" aria-label="Second group">
+              <a href="#" class="btn btn-outline-primary">Home</a>
+              <a href="#" class="btn btn-outline-secondary">
+                Items
+                <span class="badge bg-primary">3</span>
+              </a>
+              <a href="#" class="btn btn-outline-success">Success</a>
+            </div>
+          </div>
+        </div>
+        <!-- dropdown button -->
+        <div class="col-md-4">
+          <h5>Dropdown Menu</h5>
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" id="productsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Products
+            </button>
+            <div class="dropdown-menu" aria-labelledby="productsDropdown">
+              <a href="#" class="dropdown-item">Chicken Noodle Soup</a>
+              <a href="#" class="dropdown-item">Peach Pie Filling</a>
+              <a href="#" class="dropdown-item">Spaghetti-O's</a>
+            </div>
+          </div>
+        </div>
+        <!-- List groups -->
+        <div class="col-md-4">
+          <h5>List Groups</h5>
+          <!-- can also use ul/li -->
+          <div class="list-group">
+            <a href="#" class="list-group-item">Spaghetti-O's</a>
+            <a href="#" class="list-group-item">Peach Pie Filling</a>
+            <a href="#" class="list-group-item">Chicken Noodle Soup</a>
+          </div>
+        </div>
+      </div>
+    </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
