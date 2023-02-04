@@ -1,8 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Contact>
+@{
+    ViewData["Title"] = "Contact Manager App";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="mb-2">
+    <a asp-controller="Contact" asp-action="Add">Add New Contact</a>
 </div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.ContactId" asp-route-slug="@contact.Slug">@contact.FirstName</a>
+                </td>
+                <td>
+                    <a asp-controller="Contact" asp-action="Details" asp-route-id="@contact.ContactId" asp-route-slug="@contact.Slug">@contact.LastName</a>
+                </td>
+                <td>@contact.Phone</td>
+                <td>@contact.Email</td>
+                <td>@contact.Category.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
