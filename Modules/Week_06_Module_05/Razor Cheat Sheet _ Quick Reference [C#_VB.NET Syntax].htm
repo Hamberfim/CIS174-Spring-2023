@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<title>Razor Cheat Sheet / Quick Reference [C#/VB.NET Syntax]</title>
+	<link rel="stylesheet" type="text/css" href="Razor%20Cheat%20Sheet%20_%20Quick%20Reference%20[C%23_VB.NET%20Syntax]_files/style.css">
+	<script async="" src="Razor%20Cheat%20Sheet%20_%20Quick%20Reference%20[C%23_VB.NET%20Syntax]_files/analytics.js"></script><script src="Razor%20Cheat%20Sheet%20_%20Quick%20Reference%20[C%23_VB.NET%20Syntax]_files/jquery.min.js"></script>
+	<meta name="description" content="A complete cheat sheet/quick reference for the ASP.NET MVC Razor syntax in C# and VB.NET.">
+</head>
+<body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-263021-37', 'razorcheatsheet.com');
+  ga('send', 'pageview');
+</script>
+<div id="page">
+	<article>
+		<header>
+			<h1>Razor Cheat Sheet / Quick Reference<br><span style="color: #808080; font-size: 60%;">for C# &amp; VB.NET</span></h1>
+		</header>
+
+		<p>
+			With the addition of the Razor language, Microsoft really made the 
+ASP.NET MVC technology a lot easier and much more pleasant to use - 
+Razor is simply a better match for this dynamic technology than the 
+WebForms technology.
+		</p>
+		<p>
+			As you may know, Razor can be written using C# or VB.NET syntax. In 
+this quick reference you will examples for both languages. Hopefully you
+ can use this cheatsheet to get better acquainted with all the 
+possibilities that you have with the Razor syntax.
+		</p>
+		<p>
+			&gt; <a href="#csharp">Razor C# syntax cheat sheet</a><br>
+			&gt; <a href="#vb">Razor VB.NET syntax cheat sheet</a><br>
+		</p>
+		<p>Click the links above to jump straight to the quick reference for 
+the ASP.NET MVC language that you prefer, or just scroll down to read it
+ all.</p>
+		<header>
+			<h2 id="csharp">Razor C# Cheat Sheet</h2>
+		</header>
+
+		<table class="reference">
+			<thead>
+				<tr><th style="width: 20%;">Syntax / Sample</th>
+				<th style="width: 40%;">Razor Example</th>
+				<th style="width: 40%;">Remarks</th>
+			</tr></thead>
+			<tbody>
+				<tr>
+					<td>Implicit expression</td>
+					<td>
+						<pre><span class="asp">@</span>name</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example">Hello, <span class="tag-delimiter">&lt;</span><span class="tag-name">b</span><span class="tag-delimiter">&gt;</span><span class="asp">@</span>name.<span class="tag-delimiter">&lt;</span><span class="tag-name">/b</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>Simply prefix with the @ character to access a variable, a class or a function. <em>Be aware that the output will be automatically HTML encoded.</em></p>
+						<p class="details">As you can see from the example, this is easily
+ mixed with text and HTML and the parser can even handle trailing 
+periods/HTML tags!</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Explicit expression</td>
+					<td>
+						<pre><span class="asp">@(</span>5+5<span class="asp">)</span></pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example">Hello, <span class="asp">@</span>name. Your age <span class="keyword">is</span>: <span class="tag-delimiter">&lt;</span><span class="tag-name">b</span><span class="tag-delimiter">&gt;</span><span class="asp">@(</span>5+5<span class="asp">)</span>.<span class="tag-delimiter">&lt;</span><span class="tag-name">/b</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>The explicit impression should be used when you want to do 
+something that might otherwise confuse the parser. For instance, if you 
+need to access a variable in the middle of a string or if you want to do
+ calculations/modifications to the output.</p>
+						<p class="details">In the example, we make a calculation (5 + 5) 
+with simple numbers, but you could also include other variables, call 
+functions etc. inside of the parentheses.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Unencoded expression</td>
+					<td>
+						<pre><span class="asp">@</span>Html.Raw(name)</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example">Hello, <span class="tag-delimiter">&lt;</span><span class="tag-name">b</span><span class="tag-delimiter">&gt;</span><span class="asp">@</span>Html.Raw(name).<span class="tag-delimiter">&lt;</span><span class="tag-name">/b</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>The same as the implicit expression, but the output will not be HTML encoded.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Multi-statement code blocks</td>
+					<td>
+						<pre><span class="asp">@{</span>
+	<span class="comment">/* C# Code goes here */</span>
+}</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@{</span>
+    <span class="keyword">var</span> greeting = <span class="string">"Hello, world!"</span>;
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = 1; i &lt;= 3; i++)
+    {
+        <span class="tag-delimiter">&lt;</span><span class="tag-name">p</span><span class="tag-delimiter">&gt;</span><span class="asp">@</span>greeting (<span class="asp">@</span>i)<span class="tag-delimiter">&lt;</span><span class="tag-name">/p</span><span class="tag-delimiter">&gt;</span>
+    }
+}
+</pre>
+					</td>
+					<td>
+						<p>A Razor code block starts with a combination of the @-character
+ and the {-character and ends with the } character. Inside of this, 
+you're now writing C# code.</p>
+						<p class="details">However, as you can see from the extended 
+example, you can still have markup directly in the code, to easily 
+generate HTML output. Text does need to be inside of markup or with an 
+explicit text declaration (see below) when you're inside a code block 
+though, and you can't do single-line statements - they have to be inside
+ a block (braces).</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Plain text inside a code block</td>
+					<td>
+						<pre><span class="asp">@:</span>Plain text goes here...</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@</span><span class="keyword">if</span>(isTrue)
+{
+    <span class="keyword">var</span> text = <span class="string">"Code goes here..."</span>;
+    <span class="asp">@:</span>Plain text goes here...
+}</pre>
+					</td>
+					<td>
+						<p>When you're inside a code block, either because of a control 
+structure (like in the example) or because you have explicitly defined 
+one, you can output plain text by prefixing with a @-character followed 
+by a : (colon) character.</p>
+						<p class="details">An alternative exists (see below), where you use &lt;text&gt; tags instead.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Plain text inside a code block (alternative)</td>
+					<td>
+						<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">text</span><span class="tag-delimiter">&gt;</span>Plain text goes here...<span class="tag-delimiter">&lt;</span><span class="tag-name">/text</span><span class="tag-delimiter">&gt;</span></pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@</span><span class="keyword">if</span>(isTrue)
+{
+    <span class="keyword">var</span> text = <span class="string">"Code goes here..."</span>;
+    <span class="tag-delimiter">&lt;</span><span class="tag-name">text</span><span class="tag-delimiter">&gt;</span>Plain text goes here...<span class="tag-delimiter">&lt;</span><span class="tag-name">/text</span><span class="tag-delimiter">&gt;</span>
+}</pre>
+					</td>
+					<td>
+						<p>When you're inside a code block, either because of a control 
+structure (like in the example) or because you have explicitly defined 
+one, you can output plain text by surrounding it with &lt;text&gt; tags.</p>
+						<p class="details">An alternative exists (see above), where you use the @: operator instead.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Server-side comment</td>
+					<td>
+						<pre><span class="asp">@*</span>
+    Here's a Razor server-side comment
+    It won't be rendered to the browser
+    It can span multiple lines
+*@</pre>
+					</td>
+					<td>
+						<p>If you need to, you can easily write Razor comments in your code. They are a great alternative to HTML comments, because the <b>Razor comments won't be included in the output to the browser</b>.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Conditional attribute <span class="new">(New in MVC 4)</span></td>
+					<td>
+						<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">div</span> style="<span class="asp">@</span>divStyle"<span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@{</span>
+    <span class="keyword">string</span> divStyle = null;
+    <span class="keyword">if</span>(Request.QueryString["style"] != null)
+    {
+        divStyle = <span class="string">"background-color: yellow;"</span>;
+    }
+}
+<span class="tag-delimiter">&lt;</span><span class="tag-name">div</span> style=<span class="string">"<span class="asp">@</span>divStyle"</span><span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>With this syntax, you don't have to check for NULL values you 
+want an HTML attribute to use a variable value. In the example, the <em>style</em> attribute will only be rendered if the variable <em>divStyle</em> has a non-NULL value. <b>Please be aware that the variable still has to be declared!</b></p>
+						<div class="details">
+							<p>In the extended example, you can see how we can affect the output. If you specify a <em>style</em> parameter in the query string, the output will be:</p>
+							<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">div</span> style="background-color: yellow;"<span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+							<p>If not, the output will instead be:</p>
+							<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">div</span><span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+
+
+
+
+
+
+		<header style="margin-top: 40px;">
+			<h2 id="vb">Razor VB.NET Cheat Sheet</h2>
+		</header>
+
+		<table class="reference">
+			<thead>
+				<tr><th style="width: 20%;">Syntax / Sample</th>
+				<th style="width: 40%;">Razor Example</th>
+				<th style="width: 40%;">Remarks</th>
+			</tr></thead>
+			<tbody>
+				<tr>
+					<td>Implicit expression</td>
+					<td>
+						<pre><span class="asp">@</span>name</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example">Hello, <span class="tag-delimiter">&lt;</span><span class="tag-name">b</span><span class="tag-delimiter">&gt;</span><span class="asp">@</span>name.<span class="tag-delimiter">&lt;</span><span class="tag-name">/b</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>Simply prefix with the @ character to access a variable, a class or a function. <em>Be aware that the output will be automatically HTML encoded.</em></p>
+						<p class="details">As you can see from the example, this is easily
+ mixed with text and HTML and the parser can even handle trailing 
+periods/HTML tags!</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Explicit expression</td>
+					<td>
+						<pre><span class="asp">@(</span>5+5<span class="asp">)</span></pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example">Hello, <span class="asp">@</span>name. Your age <span class="keyword">is</span>: <span class="tag-delimiter">&lt;</span><span class="tag-name">b</span><span class="tag-delimiter">&gt;</span><span class="asp">@(</span>5+5<span class="asp">)</span>.<span class="tag-delimiter">&lt;</span><span class="tag-name">/b</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>The explicit impression should be used when you want to do 
+something that might otherwise confuse the parser. For instance, if you 
+need to access a variable in the middle of a string or if you want to do
+ calculations/modifications to the output.</p>
+						<p class="details">In the example, we make a calculation (5 + 5) 
+with simple numbers, but you could also include other variables, call 
+functions etc. inside of the parentheses.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Unencoded expression</td>
+					<td>
+						<pre><span class="asp">@</span>Html.Raw(name)</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example">Hello, <span class="tag-delimiter">&lt;</span><span class="tag-name">b</span><span class="tag-delimiter">&gt;</span><span class="asp">@</span>Html.Raw(name).<span class="tag-delimiter">&lt;</span><span class="tag-name">/b</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>The same as the implicit expression, but the output will not be HTML encoded.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Multi-statement code blocks</td>
+					<td>
+						<pre><span class="asp">@Code</span>
+	<span class="comment">/* VB.NET Code goes here */</span>
+<span class="keyword">End</span> Code</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@Code</span>
+    <span class="keyword">Dim</span> greeting = <span class="string">"Hello, world!"</span>
+    <span class="keyword">For</span> i = 1 To 3
+        <span class="asp">@</span><span class="tag-delimiter">&lt;</span><span class="tag-name">p</span><span class="tag-delimiter">&gt;</span><span class="asp">@</span>greeting (<span class="asp">@</span>i)<span class="tag-delimiter">&lt;</span><span class="tag-name">/p</span><span class="tag-delimiter">&gt;</span>
+	<span class="keyword">Next</span> i
+<span class="keyword">End</span> Code</pre>
+					</td>
+					<td>
+						<p>A Razor code block starts with a <i>@Code</i> statement and ends with the <i>End Code</i> statement. Inside of this, you're now writing VB.NET code.</p>
+						<p class="details">However, as you can see from the extended 
+example, you can still have markup directly in the code, to easily 
+generate HTML output. Text does need to be inside of markup or with an 
+explicit text declaration (see below) when you're inside a code block 
+though, and you can't do single-line statements - they have to be inside
+ a block.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Plain text inside a code block</td>
+					<td>
+						<pre><span class="asp">@Code</span>
+    <span class="asp">@:</span>Plain text goes here
+<span class="keyword">End</span> Code</pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@</span><span class="keyword">If</span> IsPost <span class="keyword">Then</span>
+    <span class="keyword">Dim</span> text = <span class="string">"Code goes here..."</span>
+    <span class="asp">@:</span>Plain text goes here...
+<span class="keyword">End</span> <span class="keyword">If</span></pre>
+					</td>
+					<td>
+						<p>When you're inside a code block, either because of a control 
+structure (like in the example) or because you have explicitly defined 
+one, you can output plain text by prefixing with a @-character followed 
+by a : (colon) character.</p>
+						<p class="details">An alternative exists (see below), where you use &lt;text&gt; tags instead.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Plain text inside a code block (alternative)</td>
+					<td>
+						<pre><span class="asp">@</span><span class="tag-delimiter">&lt;</span><span class="tag-name">text</span><span class="tag-delimiter">&gt;</span>Plain text goes here...<span class="tag-delimiter">&lt;</span><span class="tag-name">/text</span><span class="tag-delimiter">&gt;</span></pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@</span><span class="keyword">If</span> IsPost <span class="keyword">Then</span>
+    Dim text = <span class="string">"Code goes here..."</span>
+    <span class="asp">@</span><span class="tag-delimiter">&lt;</span><span class="tag-name">text</span><span class="tag-delimiter">&gt;</span>Plain text goes here...<span class="tag-delimiter">&lt;</span><span class="tag-name">/text</span><span class="tag-delimiter">&gt;</span>
+<span class="keyword">End</span> <span class="keyword">If</span></pre>
+					</td>
+					<td>
+						<p>When you're inside a code block, either because of a control 
+structure (like in the example) or because you have explicitly defined 
+one, you can output plain text by surrounding it with &lt;text&gt; tags.</p>
+						<p class="details">An alternative exists (see above), where you use the @: operator instead.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Server-side comment</td>
+					<td>
+						<pre><span class="asp">@*</span>
+    Here's a Razor server-side comment
+    It won't be rendered to the browser
+    It can span multiple lines
+*@</pre>
+					</td>
+					<td>
+						<p>If you need to, you can easily write Razor comments in your code. They are a great alternative to HTML comments, because the <b>Razor comments won't be included in the output to the browser</b>.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Conditional attribute <span class="new">(New in MVC 4)</span></td>
+					<td>
+						<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">div</span> style="<span class="asp">@</span>divStyle"<span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+						<a class="toggle-extended" href="javascript:void(0);">&gt; Show extended example</a><pre class="extended-example"><span class="asp">@Code</span>
+    <span class="keyword">Dim</span> divStyle <span class="keyword">As</span> <span class="keyword">String</span>
+    <span class="keyword">If</span> Request.QueryString(<span class="string">"style"</span>) IsNot <span class="keyword">Nothing</span> <span class="keyword">Then</span>
+        divStyle = <span class="string">"background-color: yellow;"</span>
+    <span class="keyword">End</span> <span class="keyword">If</span>
+<span class="keyword">End</span> Code
+<span class="tag-delimiter">&lt;</span><span class="tag-name">div</span> style=<span class="string">"<span class="asp">@</span>divStyle"</span><span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+					</td>
+					<td>
+						<p>With this syntax, you don't have to check for NULL (Nothing) 
+values you want an HTML attribute to use a variable value. In the 
+example, the <em>style</em> attribute will only be rendered if the variable <em>divStyle</em> has a non-NULL (Nothing) value. <b>Please be aware that the variable still has to be declared!</b></p>
+						<div class="details">
+							<p>In the extended example, you can see how we can affect the output. If you specify a <em>style</em> parameter in the query string, the output will be:</p>
+							<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">div</span> style="background-color: yellow;"<span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+							<p>If not, the output will instead be:</p>
+							<pre><span class="tag-delimiter">&lt;</span><span class="tag-name">div</span><span class="tag-delimiter">&gt;</span>Hello, world!<span class="tag-delimiter">&lt;</span><span class="tag-name">/div</span><span class="tag-delimiter">&gt;</span></pre>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br><br><br>
+		<p style="font-style: italic;">If you have any comments or suggestions for this cheat sheet, then please <a href="mailto:info@net-tutorials.com" class="contact-link">contact us</a>.</p>
+
+	</article>
+</div>
+
+<script type="text/javascript">
+$(function()
+{
+	//$("table.reference pre.extended-example").hide();
+	//$("table.reference p.details").hide();
+
+	$("table.reference pre.extended-example").each(function(index, pre)
+	{
+		var toggle = $("<a class=\"toggle-extended\"></a>");
+		toggle.attr("href", "javascript:void(0);");
+		toggle.text("> Show extended example");
+		toggle.click(function()
+		{
+			$(pre).slideDown();
+			toggle.hide();
+			$(pre).parent().parent().find(".details").slideDown();
+		});
+		$(pre).before(toggle);
+	});
+
+	var mail = ['info', 'com', 'net-tutorials', "@", "."]
+	$("a.contact-link").attr("href", "mailto:" + mail[0] + mail[3] + mail[2] + mail[4] + mail[1]);
+
+	DoSyntaxHighlighting();
+
+
+});
+
+function DoSyntaxHighlighting()
+{
+	//Extremely crude syntax highlighting for HTML/C#/VB.NET/Razor
+	var cSharpKeywordRegex = new RegExp("\\b(abstract|as|ascending|async|await|base|bool|break|by|byte|case|catch|char|checked|class|const|continue|decimaldefault|delegatedescending|do|double|else|enum|equals|event|explicit|extern|false|finally|fixed|float|for|foreach|from|get|global|goto|group|if|implicit|in|int|interface|internal|into|is|join|let|lock|long|namespace|new|object|on|operator|orderby|out|override|params|partial|private|protected|publicreadonly|ref|return|sbyte|sealed|select|set|short|sizeof|stackalloc|static|string|struct|switch|thisthrow|truetry|typeof|uint|ulong|unchecked|unsafe|ushort|using|var|virtualvoid|volatile|where|where|while|yield)\\b", "gim");
+	var vbNetKeywordRegex = new RegExp("\\b(dim|end|isnot|next|nothing|then)\\b", "gim");
+	var tagRegex = new RegExp("<([/a-z0-9]+)([^>]*)>", "gi");
+	var cSharpCommentRegex = new RegExp("(/\\*.*?\\*/)", "gi");
+	var cSharpStringRegex = new RegExp("(@\"(?:[^\"]|\"\")*\"|\"(?:\\.|[^\\\"])*\")", "gi");
+	var razorExpressionRegex = new RegExp("(@(?=[^\W\\(\\{\\:\\*c]))", "gi");
+	var razorExplicitExpressionRegex = new RegExp("@\\((([^\\)]+))\\)", "gi");
+	//var razorVariousStartsRegex = new RegExp("@([\\{\\:\\*]+)", "gi");
+	var razorVariousStartsRegex = new RegExp("@([\\{\\:\\*]|Code)+", "gi");
+	$("table.reference pre").each(function()
+	{
+		var code = $(this).text();
+		var result = code;
+		var tagPositions = [];
+		while (match = tagRegex.exec(result))
+		{
+			tagPositions.push({ "start": match.index, "end": match.index + match[0].length });
+		}
+
+		result = HighlightOutsideTags(result, cSharpKeywordRegex, tagPositions, "keyword");
+		result = HighlightOutsideTags(result, vbNetKeywordRegex, tagPositions, "keyword");
+		//console.log(result);
+		result = HighlightOutsideTags(result, cSharpStringRegex, tagPositions, "string");
+
+		result = result.replace(tagRegex, "<span class=\"tag-delimiter\">&lt;</span><span class=\"tag-name\">$1</span>$2<span class=\"tag-delimiter\">&gt;</span>");
+		result = result.replace(cSharpCommentRegex, "<span class=\"comment\">$1</span>");
+		result = result.replace(razorExpressionRegex, "<span class=\"asp\">$1</span>");
+		result = result.replace(razorExplicitExpressionRegex, "<span class=\"asp\">@(</span>$1<span class=\"asp\">)</span>");
+		result = result.replace(razorVariousStartsRegex, "<span class=\"asp\">@$1</span>");
+		result = result.replace(new RegExp("\\[\\[\\[", "g"), "<");
+		result = result.replace(new RegExp("\\]\\]\\]", "g"), ">");
+		result = result.replace(new RegExp("~~~", "g"), "\"");
+
+		$(this).html(result);
+	});
+}
+
+function HighlightOutsideTags(input, regex, tagPositions, className)
+{
+	var result = input.replace(regex, function(match, p1, offset, string)
+	{
+		if(InTag(tagPositions, offset))
+			return match;
+		return "[[[span class=~~~" + className + "~~~]]]" + match + "[[[/span]]]";
+	});
+	return result;
+}
+
+function InTag(tagPositions, offset)
+{
+	for(var i = 0; i < tagPositions.length; i++)
+	{
+		if((offset >= tagPositions[i].start) && (offset <= tagPositions[i].end))
+			return true;
+	}
+	return false;
+}
+
+</script>
+
+</body></html>

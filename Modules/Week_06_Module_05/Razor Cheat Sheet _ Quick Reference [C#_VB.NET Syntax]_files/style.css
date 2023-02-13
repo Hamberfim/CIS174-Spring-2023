@@ -1,0 +1,165 @@
+@import url(//fonts.googleapis.com/css?family=Arvo);
+
+html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul, dd, dt, li, tbody, td, tfoot, th, thead, tr, button, del, ins, map, object, a, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, kbd, q, samp, small, span, strong, sub, sup, tt, var, legend, fieldset {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	background-color: #fff;
+	font-size: 1.0em;
+	line-height: 1.5;
+	background-color: #eee;
+	color: #666;
+}
+
+pre {
+	overflow: auto;
+}
+
+.pdf {
+	color: #dc143c;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	color: #89bc38;
+}
+
+a:visited {
+	color: #808080;
+}
+
+p {
+	margin: 15px 0;
+}
+
+ul {
+	margin: 15px 25px;
+	list-style-type: square;
+}
+
+li p {
+	margin: 10px 20px;
+	font-style: italic;
+}
+
+.floatstop {
+	float: none;
+	clear: both;
+	font-size: 0;
+	height: 0;
+}
+
+#page {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.top, footer {
+	padding: 20px 10px;
+	background-color: #808080;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+article {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+	margin: 10px 0;
+	background-color: #fff;
+	padding: 20px;
+	/*width: 800px;*/
+	float: left;
+}
+
+h1, h2, h3 {
+	font-family: 'Arvo', serif;
+	color: #4c6173;
+}
+
+h1 {
+	font-size: 2.5em;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	color: #333;
+	line-height: 100%;
+	/*text-shadow: 1px 1px #808080;*/
+}
+
+table.reference {
+	width: 100%;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+}
+
+table.reference th {
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+	background-color: #dedede;
+}
+
+table.reference td {
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 15px;
+}
+
+table.reference td:first-child {
+	font-weight: bold;
+}
+
+
+
+pre.extended-example, .details {
+	display: none;
+	background-color: #eee;
+	padding: 5px;
+}
+
+.toggle-extended {
+	background-color: #eee;
+	padding: 2px 5px;
+	text-decoration: underline;
+	display: block;
+	margin-top: 15px;
+}
+
+.new {
+	font-weight: bold;
+	font-style: italic;
+	color: #5f9ea0;
+}
+
+/* Syntax coloring */
+
+.tag-delimiter, .keyword {
+	color: #00f;
+}
+
+.tag-name {
+	color: #800000;
+}
+
+.comment {
+	color: #008000;
+}
+
+.string {
+	color: #800000;
+}
+
+.asp {
+	background-color: #ff0;
+}
+
