@@ -26,6 +26,7 @@ namespace RoutingPractice.Controllers
             }
         }
 
+        // overrides the default route
         [Route("[action]/{start}/{end?}/{message?}")]
         public IActionResult Countdown(int start, int end = 0, string message = "")
         {

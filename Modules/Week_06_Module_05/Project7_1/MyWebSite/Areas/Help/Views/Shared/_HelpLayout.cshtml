@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_Layout";
+
+    string control = ViewContext.RouteData?.Values["control"]?.ToString() ?? "";
+}
+@section header {
+    <h2>Help Page</h2>
+}
+<nav class="nav nav-tabs mt-2 mb-2">
+    <a class="nav-item nav-link
+       @(control == "Home" ? "active" : "" )"
+       asp-action="Index" asp-controller="Home" asp-area="Help">Home</a>
+    <a class="nav-item nav-link
+       @(control == "Tutorial" ? "active" : "" )"
+       asp-action="Index" asp-controller="Tutorial" asp-route-id="Page1" asp-area="Help">Tutorial</a>
+</nav>
+@RenderBody()

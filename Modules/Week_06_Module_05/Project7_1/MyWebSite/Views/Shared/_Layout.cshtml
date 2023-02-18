@@ -1,0 +1,55 @@
+﻿@{
+    string control = ViewContext.RouteData?.Values["control"]?.ToString() ?? "";
+    string action = ViewContext.RouteData?.Values["action"]?.ToString() ?? "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="container-fluid">
+    <div class="mt-3">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark ps-3 pe-3 mb-4">
+            <a class="navbar-brand" asp-action="Index">MyWebsite</a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav me-auto">
+                    <a class="nav-item nav-link
+                       @(action == "Index" && control == "" ? "active" : "")"
+                       asp-action="Index" asp-controller="Home" asp-area="">Home</a>
+                    <a class="nav-item nav-link
+                       @(action == "About" ? "active" : "" )"
+                       asp-action="About" asp-controller="Home" asp-area="">About</a>
+                    <a class="nav-item nav-link
+                       @(action == "Contact" ? "active" : "" )"
+                       asp-action="Contact" asp-controller="Home" asp-area="">Contact</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-item nav-link
+                       @(control == "Help" ? "active" : "" )"
+                       asp-action="Index" asp-controller="Home" asp-area="Help">Help</a>
+                </div>
+            </nav>
+        </nav>
+        <header class="mb-2">
+            @RenderSection("header")
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+        <footer class="mt-2">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Anthony (the ancient one)</p>
+        </footer>
+    </div>
+</body>
+</html>
